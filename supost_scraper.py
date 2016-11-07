@@ -13,8 +13,8 @@ Attributes:
 """
 
 import datetime                       # for date and time
-import httplib2                       # for receiving web pages
-from bs4 import BeautifulSoup         # for getting information from web pages
+import httplib2                     # for receiving web pages
+from bs4 import BeautifulSoup        # for getting information from web pages
 
 __author__ = "Derin Dutz, Kevin Ko"
 __copyright__ = "Copyright 2016, Derin Dutz. All rights reserved."
@@ -54,7 +54,7 @@ def scrape_supost(keywords, days_to_check):
 
     while True:
         response, content = httplib2.Http().request(link)
-        index_page = BeautifulSoup(content, "lxml")
+        index_page = BeautifulSoup(content,"html.parser")
         for link in index_page.find_all("a"):
             href = link.get("href").encode('utf-8')
             if ("post/index" in href):
@@ -86,7 +86,7 @@ def scrape_post(link, keywords):
     print("scraping post: " + link + "...")
     matches = []
     response, content = httplib2.Http().request(link)
-    post_page = BeautifulSoup(content, "lxml")
+    post_page = BeautifulSoup(content, "html.parser")
     for keyword in keywords:
         if keyword in post_page.get_text().encode('utf-8').lower():
             post_title = post_page.find("h2", {"id": "posttitle"}).text
