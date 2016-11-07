@@ -16,13 +16,11 @@ import datetime                       # for date and time
 import httplib2                       # for receiving web pages
 from bs4 import BeautifulSoup         # for getting information from web pages
 
-__author__ = "Derin Dutz"
+__author__ = "Derin Dutz, Kevin Ko"
 __copyright__ = "Copyright 2016, Derin Dutz. All rights reserved."
-__credits__ = ["Derin Dutz"]
+__credits__ = ["Derin Dutz", "Kevin Ko"]
 __license__ = "MIT"
 __version__ = "1.0.1"
-__maintainer__ = "Derin Dutz"
-__email__ = "dddutz@cs.stanford.edu"
 __status__ = "Development"
 
 KEYWORDS = ["tree"]
